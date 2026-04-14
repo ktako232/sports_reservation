@@ -1,0 +1,5 @@
+# Chrome user data
+chrome_usr_dir/
+
+# Chrome installer
+google-chrome-stable_current_amd64.deb
