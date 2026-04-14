@@ -116,8 +116,6 @@ begin
     chrome.send_cmd('Page.handleJavaScriptDialog', accept: true) # OKを押す
   end
 
-
-
   # 都立公園スポーツ予約システムのURLに遷移
   sports_url = 'https://kouen.sports.metro.tokyo.lg.jp/web/'
 
