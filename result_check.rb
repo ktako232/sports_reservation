@@ -146,8 +146,8 @@ begin
       var passwordField = document.getElementById('password');
 
       if (userIdField && passwordField) {
-        userIdField.value = '10056489';
-        passwordField.value = '386475Tkp1';
+        userIdField.value = 'xxxxxx';
+        passwordField.value = 'xxxxxx';
       }
     ")
   end
