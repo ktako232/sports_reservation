@@ -92,7 +92,7 @@ end
 
 # 終了時にChromeを終了するための処理
 at_exit do
-  puts "Killing Chrome processes..."
+  puts "Chromeプロセスを終了しています..."
   `pkill -f remote-debugging-port`
 end
 
@@ -101,7 +101,6 @@ begin
   # ユーザーディレクトリの設定
   usr_dir_path = './chrome_usr_dir'
   `rm -rf #{usr_dir_path}`
-  puts "Starting Chrome with remote debugging..."
   spawn("google-chrome --window-size=1366,768 --no-sandbox --no-first-run --remote-debugging-port=9222 --user-data-dir=#{usr_dir_path} > /dev/null 2>&1")
   sleep 5
 
@@ -120,7 +119,7 @@ begin
   sports_url = 'https://kouen.sports.metro.tokyo.lg.jp/web/'
 
   retry_operation(chrome, "サイトへのアクセス") do
-    puts "Navigating to #{sports_url}"
+    puts "#{sports_url}にアクセス中..."
     chrome.send_cmd('Page.navigate', url: sports_url)
   end
 
@@ -130,7 +129,7 @@ begin
 
   # ログインボタンをクリック
   retry_operation(chrome, "ログインボタンのクリック") do
-    puts "Clicking login button..."
+    puts "ログインボタンをクリック中..."
     chrome.send_cmd('Runtime.evaluate', expression: "
       var loginBtn = document.getElementById('btn-login');
       if (loginBtn) {
@@ -141,7 +140,7 @@ begin
 
   # フォームに利用者番号とパスワードを入力
   retry_operation(chrome, "ログイン情報の入力") do
-    puts "Filling in login credentials..."
+    puts "ログイン情報の入力中..."
     chrome.send_cmd('Runtime.evaluate', expression: "
       var userIdField = document.getElementById('userId');
       var passwordField = document.getElementById('password');
